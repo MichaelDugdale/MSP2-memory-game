@@ -1,0 +1,35 @@
+#top-right-panel {
+  background-color: red;
+  width: 150px;
+  height: 150px;
+  border-top-right-radius: 100%;
+  display: inline-block;
+  }
+
+#top-left-panel {
+    background-color: blue;
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 100%;
+    display: inline-block;
+  }
+
+  #bottom-left-panel {
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    border-bottom-left-radius: 100%;
+    display: inline-block;
+  }
+
+  #bottom-right-panel {
+    background-color: green;
+    width: 150px;
+    height: 150px;
+    border-bottom-right-radius: 100%;
+    display: inline-block;
+  }
+
+  .div-center {
+      text-align: center;
+  }
