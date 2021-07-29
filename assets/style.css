@@ -1,35 +1,68 @@
-#top-right-panel {
-  background-color: red;
-  width: 150px;
-  height: 150px;
-  border-top-right-radius: 100%;
-  display: inline-block;
-  }
+.card {
+  width:150px;
+  height:150px;
+  background-color: silver;
+  cursor: pointer;
+  border-radius: 10%;
+}
 
-#top-left-panel {
-    background-color: blue;
-    width: 150px;
-    height: 150px;
-    border-top-left-radius: 100%;
-    display: inline-block;
-  }
+.card:hover {
+  box-shadow: 10px 10px 8px 10px #888888;;
+  box-sizing: border-box;
+}
 
-  #bottom-left-panel {
-    background-color: yellow;
-    width: 150px;
-    height: 150px;
-    border-bottom-left-radius: 100%;
-    display: inline-block;
-  }
+.container {
+  display: grid;
+  grid-gap:25px;
+  margin:75px;
+  grid-template-columns: repeat(6, auto);
+  justify-content: center;
+}
 
-  #bottom-right-panel {
-    background-color: green;
-    width: 150px;
-    height: 150px;
-    border-bottom-right-radius: 100%;
-    display: inline-block;
-  }
+.red {
+   background-color: red;
+}
 
-  .div-center {
-      text-align: center;
-  }
+.blue {
+  background-color: blue; 
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow
+}
+
+.black {
+  background-color: black;
+}
+
+.orange {
+  background-color: orangered;
+}
+
+.teal {
+  background-color: teal;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.maroon {
+  background-color: maroon;
+}
+
+.purple {
+  background-color: rebeccapurple;
+}
