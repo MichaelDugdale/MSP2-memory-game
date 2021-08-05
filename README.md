@@ -1,5 +1,5 @@
 ##### Second Milestone Project
-# SIMON game
+# Card Memory game
 
 > A web version of Simon - single-player turn-based electronic memory game. It's a second milestone project for Code Institute's full stack developer course in which students need to show how to bring together elements of HTML, CSS and JavaScript and how to combine them to create interactive web applications.
 

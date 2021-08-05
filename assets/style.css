@@ -1,68 +1,39 @@
-.card {
-  width:150px;
-  height:150px;
-  background-color: silver;
-  cursor: pointer;
-  border-radius: 10%;
-}
-
-.card:hover {
-  box-shadow: 10px 10px 8px 10px #888888;;
+/* Code from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/*/
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-.container {
-  display: grid;
-  grid-gap:25px;
-  margin:75px;
-  grid-template-columns: repeat(6, auto);
-  justify-content: center;
+body {
+  margin: 20px 0;
+  background: #6589f9;
 }
 
-.red {
-   background-color: red;
+.grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.blue {
-  background-color: blue; 
+.card {
+  margin: 5px;
+  background-color: #f2f554;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 150px;
+  width: 150px;
+  border-radius: 30%;
 }
 
-.green {
-  background-color: green;
+.selected {
+  border: 4px solid red;
 }
 
-.yellow {
-  background-color: yellow
-}
-
-.black {
-  background-color: black;
-}
-
-.orange {
-  background-color: orangered;
-}
-
-.teal {
-  background-color: teal;
-}
-
-.pink {
-  background-color: pink;
-}
-
-.brown {
-  background-color: brown;
-}
-
-.cyan {
-  background-color: cyan;
-}
-
-.maroon {
-  background-color: maroon;
-}
-
-.purple {
-  background-color: rebeccapurple;
+.match {
+  border: 4px solid #6589f9;
+  background-image: none !important;
 }
