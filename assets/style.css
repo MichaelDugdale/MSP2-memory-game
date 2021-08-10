@@ -2,38 +2,71 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   margin: 20px 0;
-  background: #6589f9;
+  background: #6589F9;
 }
 
 .grid {
   max-width: 960px;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .card {
+  position: relative;
+  -webkit-transition: all .4s linear;
+  -o-transition: all .4s linear;
+  transition: all .4s linear;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   margin: 5px;
-  background-color: #f2f554;
+}
+
+.card,
+.back,
+.front {
+  height: 150px;
+  width: 150px;
+  border-radius: 25%;
+}
+
+.back,
+.front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.front {
+  background: url('../images/Cardback.jpg') no-repeat center center / contain;
+}
+
+.back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-color: #3877ff;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 150px;
-  width: 150px;
-  border-radius: 30%;
 }
 
 .selected {
-  border: 4px solid red;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
-.match {
-  border: 4px solid #6589f9;
-  background-image: none !important;
+.match .front {
+  background: #6589F9 !important;
 }

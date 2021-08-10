@@ -54,7 +54,8 @@ const cardsArray = [{
 let firstGuess = "";
 let secondGuess = "";
 let count = 0;
-let previousTarget = null
+let previousTarget = null;
+let delay = 1200;
 
 /* Duplicate array to create a match for each card and randomize the order of the displayed cards*/
 let gameGrid = cardsArray.concat(cardsArray);
@@ -68,43 +69,57 @@ game.appendChild(grid);
 
 /* looping through the card arry to display the images by creating divs for each item, code taken from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
 
-gameGrid.forEach(item => {
+gameGrid.forEach((item) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.name = item.name;
-    card.style.backgroundImage = `url(${item.img})`;
+
+    /* creating the front and back of card so we can intially hide the cards then flip them when selected https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */ 
+    const front = document.createElement("div");
+    front.classList.add("front");
+    const back = document.createElement("div");
+    back.classList.add("back");
+    back.style.backgroundImage = `url(${item.img})`;
     grid.appendChild(card);
+    card.appendChild(front);
+    card.appendChild(back);
 });
 
-/* add an click event listener to the divs within the section without letting you select the parent element*/
+/* add an click event listener to the divs within the section without letting you select the parent element https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
 
 grid.addEventListener("click", function (event) {
     let clicked = event.target;
-    if (clicked.nodeName === "SECTION" ||
-    clicked === previousTarget) {
-        return
+    if (clicked.nodeName === 'SECTION' || //selects divs inside the grid section
+    clicked === previousTarget || //ignore if the same card is clicked again
+    clicked.parentNode.classList.contains('selected') || //stops already selected cards to flip over
+    clicked.parentNode.classList.contains('match')) //stops matched cards to flip over if clicked again
+    {
+return; //stops function
     }
+    /* creating the game functions, click matches and reset guess count https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
+
     if (count < 2) {
         count++;
         if (count === 1) {
-            firstGuess = clicked.dataset.name;
-            clicked.classList.add("selected")
-        } else {
-            secondGuess = clicked.dataset.name
-            clicked.classList.add("selected")
-        }
+            firstGuess = clicked.parentNode.dataset.name;
+            clicked.parentNode.classList.add('selected');
+          } else {    
+            secondGuess = clicked.parentNode.dataset.name;
+            clicked.parentNode.classList.add('selected');
+          }
         if (firstGuess !== "" && secondGuess !== "") {
             if (firstGuess === secondGuess) {
-                match()
+                setTimeout(match, delay);
+                setTimeout(resetGuesses, delay);
+            } else {
+                setTimeout(resetGuesses, delay);
             }
         }
         previousTarget = clicked;
     }
 })
 
-//Count and select code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified
-
-
+/*match card function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
 
 const match = () => {
     let selected = document.querySelectorAll(".selected");
@@ -112,3 +127,18 @@ const match = () => {
         card.classList.add("match")
     })
 }
+/* function to reset guesses code taken from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
+
+const resetGuesses = () => {
+    firstGuess = "";
+    secondGuess = "";
+    count = 0;
+
+    let selected = document.querySelectorAll(".selected");
+    selected.forEach((card) => {
+    card.classList.remove("selected");
+})
+}
+
+
+
