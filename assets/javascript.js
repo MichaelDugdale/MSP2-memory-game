@@ -55,7 +55,8 @@ let firstGuess = "";
 let secondGuess = "";
 let count = 0;
 let previousTarget = null;
-let delay = 1200;
+let delay = 800;
+let timerOn = false;
 
 /* Duplicate array to create a match for each card and randomize the order of the displayed cards*/
 let gameGrid = cardsArray.concat(cardsArray);
@@ -85,17 +86,40 @@ gameGrid.forEach((item) => {
     card.appendChild(back);
 });
 
+/*Countdown Timer*/
+let time = 1000;
+let timer;
+function startCountDown() {
+  timer = setInterval(function () {
+    time--; 
+    seconds = ("100" + (time % 60)).slice(-2);
+    document.querySelector(".timer").innerHTML =  seconds;
+  }, 1000);
+}
+
+
+
 /* add an click event listener to the divs within the section without letting you select the parent element https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
 
-grid.addEventListener("click", function (event) {
-    let clicked = event.target;
-    if (clicked.nodeName === 'SECTION' || //selects divs inside the grid section
-    clicked === previousTarget || //ignore if the same card is clicked again
-    clicked.parentNode.classList.contains('selected') || //stops already selected cards to flip over
-    clicked.parentNode.classList.contains('match')) //stops matched cards to flip over if clicked again
-    {
-return; //stops function
+grid.addEventListener('click', function (event) {
+
+    let clicked = event.target; //any element that has been clicked 
+     //Start the timer on the first click
+      if (timerOn === false) {
+          startCountDown();
+          timerOn = true;
+      }
+  
+  //Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ 
+  
+      if (clicked.nodeName === 'SECTION' || 
+          clicked === previousTarget || 
+          clicked.parentNode.classList.contains('selected') || 
+          clicked.parentNode.classList.contains('match')) 
+          {
+      return; 
     }
+  
     /* creating the game functions, click matches and reset guess count https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
 
     if (count < 2) {
