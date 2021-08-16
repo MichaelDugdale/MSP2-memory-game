@@ -9,6 +9,22 @@
 body {
   margin: 20px 0;
   background: #6589F9;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.main-header {
+  text-align: center;
+  margin-top: 45px;
+}
+
+.control-panel {
+  height: 50px;
+  width: 650px;
+  margin : 0 auto;
+padding : 5px;
+display : flex;
+flex-direction: row;
+justify-content:space-between;
 }
 
 .grid {
@@ -39,7 +55,6 @@ body {
 .front {
   height: 150px;
   width: 150px;
-  border-radius: 25%;
 }
 
 .back,
@@ -56,7 +71,7 @@ body {
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #3877ff;
+  background-color: #6589F9;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -69,4 +84,53 @@ body {
 
 .match .front {
   background: #6589F9 !important;
+}
+
+.popUp {
+  background-color: #FFFFFF;
+  width: 540px;
+  height: 300px;
+  border: solid;
+  border-radius: 0.8rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  visibility: hidden;  
+}
+
+.popUpText {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #da0da4;
+  position: relative;
+  top: 2rem;
+  text-align: center;
+}
+
+.popUpTime, .popUpMoves {
+  font-size: 25px;
+  color: #363636;
+  position: relative;
+  top: 4rem;
+  text-align: center;
+}
+
+.playAgain {
+  background-color: #0aa2dc;
+  color: #FFFFFF;
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  position: relative;
+  top: 6rem;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  margin-left: 155px;
+}
+
+.playAgain:hover {
+  transform: scale(1.3);
+  cursor: pointer;
 }

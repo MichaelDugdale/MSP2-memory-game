@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<h1 class="main-header">Pokemon Memory Card game</h1>
+<h1 class="main-header">Pokemon Memory Card Game</h1>
+
 <body>
-  <h3 class="timer">40<h3>
-  <div id="game"></div> 
+  <div class="control-panel">
+    <div class="moves">00  Moves</div>
+    <div class="timer">0 Minutes 0 Seconds</div>
+  </div>
+  <div id="game"></div>
+
+  <div class="popUp">
+    <div class="popUpText">Congratulations! Genius!</div>
+    <div class="popUpTime">You won the game in 45 seconds!</div>
+    <div class="popUpMoves">You made 20 moves!</div>
+   <button type="button" class="playAgain" onclick="startGame()">Play Again!</button>
+</div>
 
 
- <script src="assets/javascript.js"></script>
+  <script src="assets/javascript.js"></script>
 </body>
+
 </html>

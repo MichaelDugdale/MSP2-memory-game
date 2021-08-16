@@ -1,20 +1,9 @@
 /* Code from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/*/
 //Declaring card data
 const cardsArray = [{
-        name: 'pokemon1',
-        img: 'images/001.png',
-    },
-    {
+
         name: 'pokemon2',
         img: 'images/003.png',
-    },
-    {
-        name: 'pokemon3',
-        img: 'images/004.png',
-    },
-    {
-        name: 'pokemon4',
-        img: 'images/007.png',
     },
     {
         name: 'pokemon5',
@@ -57,6 +46,10 @@ let count = 0;
 let previousTarget = null;
 let delay = 800;
 let timerOn = false;
+let moves = 0;
+let second = 0,
+    minute = 0;
+let matchCount = 0;
 
 /* Duplicate array to create a match for each card and randomize the order of the displayed cards*/
 let gameGrid = cardsArray.concat(cardsArray);
@@ -75,7 +68,7 @@ gameGrid.forEach((item) => {
     card.classList.add('card');
     card.dataset.name = item.name;
 
-    /* creating the front and back of card so we can intially hide the cards then flip them when selected https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */ 
+    /* creating the front and back of card so we can intially hide the cards then flip them when selected https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
     const front = document.createElement("div");
     front.classList.add("front");
     const back = document.createElement("div");
@@ -86,15 +79,26 @@ gameGrid.forEach((item) => {
     card.appendChild(back);
 });
 
-/*Countdown Timer*/
-let time = 1000;
-let timer;
-function startCountDown() {
-  timer = setInterval(function () {
-    time--; 
-    seconds = ("100" + (time % 60)).slice(-2);
-    document.querySelector(".timer").innerHTML =  seconds;
-  }, 1000);
+/*game Timer https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript */
+let timer = document.querySelector(".timer");
+let interval;
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute +"  "+ "Minutes"+"  "+ second +"  "+"Seconds";
+        second++;
+        if(second == 60){
+            minute++;
+            second = 0;
+        }
+    },1000);
+}
+
+/*move counter code https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript*/
+
+let counter = document.querySelector('.moves');
+function moveCounter(){    
+    moves++;    
+    counter.innerHTML = moves + "  Moves";
 }
 
 
@@ -103,36 +107,39 @@ function startCountDown() {
 
 grid.addEventListener('click', function (event) {
 
-    let clicked = event.target; //any element that has been clicked 
-     //Start the timer on the first click
-      if (timerOn === false) {
-          startCountDown();
-          timerOn = true;
-      }
-  
-  //Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ 
-  
-      if (clicked.nodeName === 'SECTION' || 
-          clicked === previousTarget || 
-          clicked.parentNode.classList.contains('selected') || 
-          clicked.parentNode.classList.contains('match')) 
-          {
-      return; 
+    let clicked = event.target; /*any element that has been clicked 
+    Start the timer on the first click*/
+    if (timerOn === false) {
+        startTimer();
+        timerOn = true;
     }
-  
+
+    /*Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript*/ 
+
+    if (clicked.nodeName === 'SECTION' ||
+        clicked === previousTarget ||
+        clicked.parentNode.classList.contains('selected') ||
+        clicked.parentNode.classList.contains('match')) {
+        return;
+    }
+
     /* creating the game functions, click matches and reset guess count https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
 
     if (count < 2) {
         count++;
+        if (count === 2){
+            moveCounter()
+        }
         if (count === 1) {
             firstGuess = clicked.parentNode.dataset.name;
             clicked.parentNode.classList.add('selected');
-          } else {    
+        } else {
             secondGuess = clicked.parentNode.dataset.name;
             clicked.parentNode.classList.add('selected');
-          }
+        }
         if (firstGuess !== "" && secondGuess !== "") {
             if (firstGuess === secondGuess) {
+                matchCount++
                 setTimeout(match, delay);
                 setTimeout(resetGuesses, delay);
             } else {
@@ -140,6 +147,12 @@ grid.addEventListener('click', function (event) {
             }
         }
         previousTarget = clicked;
+    }
+    /*match all the cards, victory popup and reset game*/
+    if (matchCount === 9) {
+        gameVictory(moves, timer)
+        clearInterval(timer)
+        timerOn = false;
     }
 })
 
@@ -160,9 +173,13 @@ const resetGuesses = () => {
 
     let selected = document.querySelectorAll(".selected");
     selected.forEach((card) => {
-    card.classList.remove("selected");
-})
+        card.classList.remove("selected");
+    })
 }
 
-
-
+function gameVictory(moves) {
+    let popUp = document.querySelector('.popUp');
+        popUp.style.visibility = 'visible';
+        popUp.querySelector('.popUpTime').innerHTML = 'You won the game in ' + minutes + ' mins and ' + seconds + ' secs!';
+        popUp.querySelector('.popUpMoves').innerHTML = 'You made ' + moves + ' moves!';
+};
