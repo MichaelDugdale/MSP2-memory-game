@@ -150,7 +150,7 @@ grid.addEventListener('click', function (event) {
         previousTarget = clicked;
     }
 /*match all the cards, victory panel and reset game*/
-    if (matchCount === 9) {
+    if (matchCount === 1) {
         gameVictory(moves, timer)
         clearInterval(interval)
         timerOn = false;
@@ -177,14 +177,6 @@ const resetGuesses = () => {
         card.classList.remove("selected");
     })
 }
-/* victory popup code inspired from fellow student https://github.com/karzuin/MS2/blob/master/assets/js/main.js */
-
-function gameVictory(moves) {
-    let VictoryPanel = document.querySelector('.VictoryPanel');
-        VictoryPanel.style.visibility = 'visible';
-        VictoryPanel.querySelector('.VictoryPanelMoves').innerHTML = 'You won the game in ' + moves + ' moves!';
-        VictoryPanel.querySelector('.VictoryPanelTime').innerHTML = 'it took you ' + minute + ' minutes and ' + second + ' seconds!' + `<br>` + 'GOODJOB!';
-};
 
 /*Restart game via the start button*/
 function reloadGame(){
@@ -214,3 +206,12 @@ btn.onclick = function() {
       modal.style.display = "none";
     }
   }
+
+  
+  function gameVictory() {
+    let victoryModal = document.getElementById("VictoryPanel-modal");
+    victoryModal.style.display = "block";
+    victoryModal.querySelector('.VictoryPanelMoves').innerHTML = 'You caught them all in ' + moves + ' moves!';
+    victoryModal.querySelector('.VictoryPanelTime').innerHTML = 'it took you ' + minute + ' minutes and ' + second + ' seconds!' + `<br>` + 'GOODJOB!';
+}
+  
