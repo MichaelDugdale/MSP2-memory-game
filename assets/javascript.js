@@ -127,6 +127,7 @@ grid.addEventListener('click', function (event) {
 
     if (count < 2) {
         count++;
+        /*code to make it only increase movecounter after 2 cards have been selected*/
         if (count === 2){
             moveCounter()
         }
@@ -148,10 +149,10 @@ grid.addEventListener('click', function (event) {
         }
         previousTarget = clicked;
     }
-    /*match all the cards, victory popup and reset game*/
+/*match all the cards, victory panel and reset game*/
     if (matchCount === 9) {
         gameVictory(moves, timer)
-        clearInterval(timer)
+        clearInterval(interval)
         timerOn = false;
     }
 })
@@ -176,10 +177,40 @@ const resetGuesses = () => {
         card.classList.remove("selected");
     })
 }
+/* victory popup code inspired from fellow student https://github.com/karzuin/MS2/blob/master/assets/js/main.js */
 
 function gameVictory(moves) {
-    let popUp = document.querySelector('.popUp');
-        popUp.style.visibility = 'visible';
-        popUp.querySelector('.popUpTime').innerHTML = 'You won the game in ' + minutes + ' mins and ' + seconds + ' secs!';
-        popUp.querySelector('.popUpMoves').innerHTML = 'You made ' + moves + ' moves!';
+    let VictoryPanel = document.querySelector('.VictoryPanel');
+        VictoryPanel.style.visibility = 'visible';
+        VictoryPanel.querySelector('.VictoryPanelMoves').innerHTML = 'You won the game in ' + moves + ' moves!';
+        VictoryPanel.querySelector('.VictoryPanelTime').innerHTML = 'it took you ' + minute + ' minutes and ' + second + ' seconds!' + `<br>` + 'GOODJOB!';
 };
+
+/*Restart game via the start button*/
+function reloadGame(){
+    window.location.reload();
+} 
+
+let restartGame = function restartGame() {
+    reloadGame();
+};
+
+/* instruction modal https://www.w3schools.com/howto/howto_css_modals.asp*/ 
+
+let modal = document.getElementById("instructions-modal");
+let btn = document.getElementById("instruction-btn");
+let span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
