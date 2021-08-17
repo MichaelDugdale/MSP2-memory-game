@@ -150,7 +150,7 @@ grid.addEventListener('click', function (event) {
         previousTarget = clicked;
     }
 /*match all the cards, victory panel and reset game*/
-    if (matchCount === 1) {
+    if (matchCount === 9) {
         gameVictory(moves, timer)
         clearInterval(interval)
         timerOn = false;
