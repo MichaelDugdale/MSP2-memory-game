@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<h1 class="main-header">Pokemon Memory Card Game</h1>
+
+<body>
+    <!---instruction modal-->
+    <div class="instructions"><button id="instruction-btn">Instructions</button></div>
+    <div id="instructions-modal" class="modal">
+        <div class="instructions-content">
+            <p>Hey There Pokemon trainer! To catch all the pokemon you need to match the cards!<br>You got this!!
+            </p>
+            <br><span class="close">close</span>
+        </div>
+    </div>
+    <!---timer and move counter-->
+    <div class="control-panel">
+        <div class="moves">00 Moves</div>
+        <div class="timer">0 Minutes 0 Seconds</div>
+        <div class="restart"><a href="index.html"><button class="restart-btn ">Restart</button></a></div>
+    </div>
+    <!---victory modal-->
+    <div id="VictoryPanel-modal" class="victoryPopUp">
+        <div class="VictoryPanelMoves"></div>
+        <div class="VictoryPanelTime"></div>
+        <button type="button" class="playAgain" onclick="restartGame()">Play Again!</button>
+    </div>
+    <!---cards append to this div-->
+    <div id="game"></div>
+
+
+    <script src="assets/javascript.js"></script>
+</body>
+
+</html>

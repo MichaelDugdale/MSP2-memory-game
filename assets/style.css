@@ -42,6 +42,8 @@ body {
           justify-content: space-evenly;
 }
 
+/* Code from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/*/
+
 .card {
   position: relative;
   -webkit-transition: all .4s linear;
@@ -51,6 +53,8 @@ body {
           transform-style: preserve-3d;
   margin: 5px;
 }
+
+/* Code from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/*/
 
 .card,
 .back,
@@ -73,6 +77,8 @@ body {
   background: url('../images/Cardback.jpg') no-repeat center center / contain;
 }
 
+/* Code from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/*/
+
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
@@ -91,6 +97,13 @@ body {
   background: #6589F9 !important;
 }
 
+.restart-btn {
+  font-family: 'Press Start 2P', cursive;
+  background-color: orange;
+  text-align: center;
+  border-radius: 20%;
+}
+
 
 
 
@@ -104,12 +117,13 @@ body {
 }
 #instruction-btn {
   font-family: 'Press Start 2P', cursive;
-  background-color: #6589F9;
+  background-color: orange;
   text-align: center;
+  border-radius: 20%;
 }
 
 .modal {
-  display: none; /* Hidden by default */
+  display: none; 
   position: absolute; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -178,3 +192,91 @@ body {
   cursor: pointer;
   border: 2.5px solid red
 }
+
+/*index.html page*/
+
+.body-bg {
+  background: url('../images/21000.jpg')no-repeat center center  fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*start button*/
+.start-game {
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  margin:auto;
+  padding-top: 50px;
+}
+
+.start-game-btn {
+  background-color: orange;
+  color: white;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+/* -------------MEDIA QUERIES---------------*/
+/* FOR PHONES */
+@media (max-width: 600px) {
+
+	.grid {
+		width: 200px;
+   }
+
+  .card, .back, .front {
+    width: 60px;
+    height: 60px;
+    margin: 1px;
+}
+
+.control-panel {
+    width: 200px;
+    height: 100px;
+    font-size: small;
+}
+
+.timer {
+    font-size: small;
+}
+
+.moves {
+  font-size: small;
+}
+
+.main-header {
+  margin-top: 0;
+  font-size: small;
+  padding: 0;
+}
+
+.instructions {
+  font-size: small;
+  margin: 0;
+  padding: 1;
+}
+
+.restart-btn {
+  font-size: small;
+}
+
+.victoryPopUp {
+  background-color: #6589F9;
+  border: none;
+  border-radius:none;
+}
+}
+
+

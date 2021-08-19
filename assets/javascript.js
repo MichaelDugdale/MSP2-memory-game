@@ -39,6 +39,7 @@ const cardsArray = [{
     },
 ];
 
+
 /*Declaring global variables*/
 let firstGuess = "";
 let secondGuess = "";
@@ -50,6 +51,8 @@ let moves = 0;
 let second = 0,
     minute = 0;
 let matchCount = 0;
+let cardClick = new Audio();
+cardClick.src = "audio/Assets_Audio_flip.wav"
 
 /* Duplicate array to create a match for each card and randomize the order of the displayed cards*/
 let gameGrid = cardsArray.concat(cardsArray);
@@ -102,17 +105,17 @@ function moveCounter(){
 }
 
 
-
 /* add an click event listener to the divs within the section without letting you select the parent element https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
-
 grid.addEventListener('click', function (event) {
-
+    
     let clicked = event.target; /*any element that has been clicked 
     Start the timer on the first click*/
     if (timerOn === false) {
         startTimer();
         timerOn = true;
     }
+    cardClick.play()
+      
 
     /*Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript*/ 
 
@@ -156,6 +159,7 @@ grid.addEventListener('click', function (event) {
         timerOn = false;
     }
 })
+
 
 /*match card function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
 
