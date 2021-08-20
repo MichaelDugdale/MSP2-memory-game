@@ -51,8 +51,6 @@ let moves = 0;
 let second = 0,
     minute = 0;
 let matchCount = 0;
-let cardClick = new Audio();
-cardClick.src = "audio/Assets_Audio_flip.wav"
 
 /* Duplicate array to create a match for each card and randomize the order of the displayed cards*/
 let gameGrid = cardsArray.concat(cardsArray);
@@ -114,7 +112,6 @@ grid.addEventListener('click', function (event) {
         startTimer();
         timerOn = true;
     }
-    cardClick.play()
       
 
     /*Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript*/ 

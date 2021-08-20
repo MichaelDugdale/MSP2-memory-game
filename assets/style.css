@@ -249,11 +249,11 @@ body {
 }
 
 .timer {
-    font-size: small;
+    font-size: smaller;
 }
 
 .moves {
-  font-size: small;
+  font-size: smaller;
 }
 
 .main-header {
