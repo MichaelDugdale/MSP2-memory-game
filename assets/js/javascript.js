@@ -3,42 +3,41 @@
 const cardsArray = [{
 
         name: 'pokemon2',
-        img: 'images/003.png',
+        img: '../assets/images/003.png',
     },
     {
         name: 'pokemon5',
-        img: 'images/009.png',
+        img: '../assets/images/009.png',
     },
     {
         name: 'pokemon6',
-        img: 'images/018.png',
+        img: '../assets/images/018.png',
     },
     {
         name: 'pokemon7',
-        img: 'images/025.png',
+        img: '../assets/images/025.png',
     },
     {
         name: 'pokemon8',
-        img: 'images/039.png',
+        img: '../assets/images/039.png',
     },
     {
         name: 'pokemon9',
-        img: 'images/051.png',
+        img: '../assets/images/051.png',
     },
     {
         name: 'pokemon10',
-        img: 'images/006.png',
+        img: '../assets/images/006.png',
     },
     {
         name: 'pokemon11',
-        img: 'images/052.png',
+        img: '../assets/images/052.png',
     },
     {
         name: 'pokemon12',
-        img: 'images/059.png',
+        img: '../assets/images/059.png',
     },
 ];
-
 
 /*Declaring global variables*/
 let firstGuess = "";
@@ -85,7 +84,7 @@ let timer = document.querySelector(".timer");
 let interval;
 function startTimer(){
     interval = setInterval(function(){
-        timer.innerHTML = minute +"  "+ "Minutes"+"  "+ second +"  "+"Seconds";
+        timer.innerHTML = minute +" "+ "Mins"+" "+ second +" "+"Secs";
         second++;
         if(second == 60){
             minute++;
@@ -116,10 +115,10 @@ grid.addEventListener('click', function (event) {
 
     /*Stop function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript*/ 
 
-    if (clicked.nodeName === 'SECTION' ||
-        clicked === previousTarget ||
-        clicked.parentNode.classList.contains('selected') ||
-        clicked.parentNode.classList.contains('match')) {
+    if (clicked.nodeName === 'SECTION' || //only divs inside grid can be selected
+        clicked === previousTarget || //stop same card being selected
+        clicked.parentNode.classList.contains('selected') || //stops already selected cards being selected
+        clicked.parentNode.classList.contains('match')) { //stops already matched cards from being selected
         return;
     }
 
@@ -142,7 +141,7 @@ grid.addEventListener('click', function (event) {
             if (firstGuess === secondGuess) {
                 matchCount++
                 setTimeout(match, delay);
-                setTimeout(resetGuesses, delay);
+                setTimeout(resetGuesses, delay); //call match() makes cards dissappear after a delay then resets guesses
             } else {
                 setTimeout(resetGuesses, delay);
             }
@@ -188,31 +187,11 @@ let restartGame = function restartGame() {
     reloadGame();
 };
 
-/* instruction modal https://www.w3schools.com/howto/howto_css_modals.asp*/ 
-
-let modal = document.getElementById("instructions-modal");
-let btn = document.getElementById("instruction-btn");
-let span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-    modal.style.display = "block";
-  }
-  
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  
-  function gameVictory() {
+/*victory popup modal*/
+function gameVictory() {
     let victoryModal = document.getElementById("VictoryPanel-modal");
     victoryModal.style.display = "block";
     victoryModal.querySelector('.VictoryPanelMoves').innerHTML = 'You caught them all in ' + moves + ' moves!';
-    victoryModal.querySelector('.VictoryPanelTime').innerHTML = 'it took you ' + minute + ' minutes and ' + second + ' seconds!' + `<br>` + 'GOODJOB!';
+    victoryModal.querySelector('.VictoryPanelTime').innerHTML = 'it took you ' + minute + 'minutes and ' + second +' seconds!'+' GOODJOB!';
 }
   

@@ -82,11 +82,11 @@ for me to finish the game. It should also have a button to play the game again.
 - Testing HTML
     - Pasted the url of each individual page for validation. A few minor errors in the code was discovered and corrected.
 
-    ![validator](/assets/wireframes/html validator.png)
+    ![validator](/assets/wireframes/htmlvalidator.png)
 - Testing CSS
     - Pasted the complete CSS code in the "jigsaw Validate by direct input"-section. No problems found
 
-    ![validator](/assets/wireframes/css jigsaw validator.png)
+    ![validator](/assets/wireframes/cssjigsawvalidator.png)
 
 ### testing user stories 
 

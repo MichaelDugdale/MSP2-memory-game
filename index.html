@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memory Game</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<h1 class="main-header">Pokemon Memory Card Game</h1>
 
-<body class="body-bg"> 
-  <div class="start-game"><a href="game.html"><button class="start-game-btn">Start Game</button></a></div>
+<body class="body-bg">
 
-
+  <h1 class="main-header">Pokemon Memory Card Game</h1>
+  <!---instruction modal-->
+  <div class="instructions"><button id="instruction-btn">Instructions</button></div>
+  <div id="instructions-modal" class="modal">
+    <div class="instructions-content">
+      <p>Hey There Pokemon trainer! To catch all the pokemon you need to match the cards!<br>You got this!
+      </p>
+      <br><span class="close">close</span>
+    </div>
+  </div>
+  <div class="start-game"><form action="game.html"><button class="start-game-btn">Start Game</button></form></div>
+  <!---js for the instructions pop up /* instruction modal https://www.w3schools.com/howto/howto_css_modals.asp*/ -->
+  <script>
+    let modal = document.getElementById("instructions-modal");
+    let btn = document.getElementById("instruction-btn");
+    let span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }</script>
 </body>
+
 </html>
