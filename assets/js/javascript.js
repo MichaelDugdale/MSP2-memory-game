@@ -129,7 +129,7 @@ grid.addEventListener('click', function (event) {
         /*code to make it only increase movecounter after 2 cards have been selected*/
         if (count === 2){
             moveCounter()
-        }
+        };
         if (count === 1) {
             firstGuess = clicked.parentNode.dataset.name;
             clicked.parentNode.classList.add('selected');
@@ -139,7 +139,7 @@ grid.addEventListener('click', function (event) {
         }
         if (firstGuess !== "" && secondGuess !== "") {
             if (firstGuess === secondGuess) {
-                matchCount++
+                matchCount++;
                 setTimeout(match, delay);
                 setTimeout(resetGuesses, delay); //call match() makes cards dissappear after a delay then resets guesses
             } else {
@@ -150,11 +150,11 @@ grid.addEventListener('click', function (event) {
     }
 /*match all the cards, victory panel and reset game*/
     if (matchCount === 9) {
-        gameVictory(moves, timer)
-        clearInterval(interval)
+        gameVictory(moves, timer);
+        clearInterval(interval);
         timerOn = false;
     }
-})
+});
 
 
 /*match card function code below from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ and modified*/
@@ -162,9 +162,9 @@ grid.addEventListener('click', function (event) {
 const match = () => {
     let selected = document.querySelectorAll(".selected");
     selected.forEach((card) => {
-        card.classList.add("match")
-    })
-}
+        card.classList.add("match");
+    });
+};
 /* function to reset guesses code taken from https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/ */
 
 const resetGuesses = () => {
@@ -175,8 +175,8 @@ const resetGuesses = () => {
     let selected = document.querySelectorAll(".selected");
     selected.forEach((card) => {
         card.classList.remove("selected");
-    })
-}
+    });
+};
 
 /*Restart game via the start button*/
 function reloadGame(){
