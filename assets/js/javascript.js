@@ -3,39 +3,39 @@
 const cardsArray = [{
 
         name: 'pokemon2',
-        img: '../assets/images/003.png',
+        img: 'assets/images/003.png',
     },
     {
         name: 'pokemon5',
-        img: '../assets/images/009.png',
+        img: 'assets/images/009.png',
     },
     {
         name: 'pokemon6',
-        img: '../assets/images/018.png',
+        img: 'assets/images/018.png',
     },
     {
         name: 'pokemon7',
-        img: '../assets/images/025.png',
+        img: 'assets/images/025.png',
     },
     {
         name: 'pokemon8',
-        img: '../assets/images/039.png',
+        img: 'assets/images/039.png',
     },
     {
         name: 'pokemon9',
-        img: '../assets/images/051.png',
+        img: 'assets/images/051.png',
     },
     {
         name: 'pokemon10',
-        img: '../assets/images/006.png',
+        img: 'assets/images/006.png',
     },
     {
         name: 'pokemon11',
-        img: '../assets/images/052.png',
+        img: 'assets/images/052.png',
     },
     {
         name: 'pokemon12',
-        img: '../assets/images/059.png',
+        img: 'assets/images/059.png',
     },
 ];
 

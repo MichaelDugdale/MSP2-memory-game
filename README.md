@@ -12,15 +12,10 @@
    1. [Users stories](#users-stories)
    1. [Wireframes](#wireframes)
 1. [Features](#features)
-1. [Logic](#logic)
-1. [Style and layout](#style-and-layout)
 1. [Technologies used](#technologies-used)
-1. [Project approach and difficulties](#project-approach-and-difficulties)
 1. [Testing](#testing)
-   1. [User stories](#user-stories)
-   1. [Different browsers, mobile, desktop](#different-browsers-mobile-desktop)
 1. [Deployment](#deployment)
-1. [Content](#content)
+1. [Credits](#Credits)
 1. [Acknowledgements](#acknowledgements)
 
 ## UX
@@ -100,6 +95,9 @@ Testing information can be found here [TESTING.md](TESTING.md)
 
 i only used one branch for this project
 
+ [Follow this link](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+on how to deploy to Github pages.
+
 ### Cloning project locally 
 
 1. Go to GitHub.com
@@ -116,4 +114,24 @@ to open via repl:
  3. Open IDE Repl.it
  4. Upload folder or files
 
-## Credits
+# Credits
+
+### Media
+
+#### Images for cards front and back and index.html background:
+
+all images are taken from - [Pokemon]( https://www.pokemon.com/uk/pokedex/) 
+
+### Code
+
+- [w3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) for how to make Modals
+
+- The memory card game template code is from [Tania Rascia](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/).
+
+- [Sandra Israel Ovirih](https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript) for move counter and timer features.
+
+- [w3Schools](https://www.w3schools.com/howto/howto_css_modals.asp )
+
+# Acknowledgements
+
+Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel and my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/).
