@@ -1,5 +1,9 @@
-##### Second Milestone Project
+# Second Milestone Project
+
 # Card Memory game
+
+[View the live website here](https://michaeldugdale.github.io/MSP2-memory-game/)
+
 
 > A simple Memory card game featuring the popular card game pokemon. The game is designed to help people of all ages improve their memory whilst also being entertaining and quick. The design is simplistic with the aim to keep focus on the cards, while the timer and move counter are easy to read but not distracting.
 

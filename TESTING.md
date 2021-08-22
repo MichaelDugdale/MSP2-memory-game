@@ -1,14 +1,14 @@
 # Testing 
 
 ### Browser compatibility
-- Responsiveness on different browsers:
+- Responsiveness on different browsers and screen sizes:
 
 [Google Chrome](https://google.com) all the testing information has been tested on Chrome browser using DevTools.
-[Mozilla Firefox](https://www.mozilla.org/en-GB/firefox/new/) works as intead
+[Mozilla Firefox](https://www.mozilla.org/en-GB/firefox/new/) works as inteaded.
 [Internet Explorer](https://www.microsoft.com/en-gb/download/internet-explorer.aspx) works as intended.
 [Opera](https://www.opera.com/) works as intended.
 
-manuel tested each one to ensure the website was responsive on the different browers listed.
+manuel tested each one to ensure the website was responsive on the different browers listed via testing them all on different resoultions.
 
 ### Second Test - Validation of code using W3C Markup Validation Service
 - Testing HTML
@@ -55,5 +55,9 @@ manuel tested each one to ensure the website was responsive on the different bro
  ## Bugs
 
  - on lower screen resolutions the modal wasnt working as intended and in order to fix it and changed the display:none for the border on screen resolutions under 280px
+
+### Existing Bugs
+
+ - rarely the grid with flip on its side for a fraction of a second then flip back, im unaware what causes this and am unable to debugg it
 
 
